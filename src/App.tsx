@@ -10,9 +10,6 @@ class App extends React.Component {
     return (
         <Layout>
             <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">Quotes</h1>
-            </header>
             <section>
                 <Quotes/>
             </section>

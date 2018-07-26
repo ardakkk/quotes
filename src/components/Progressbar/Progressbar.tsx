@@ -5,9 +5,7 @@ const Progressbar = (props) => {
     return (
             <React.Fragment>
                 <div className="progress">
-                    <div className="bar">
-                        <span>4 / 10</span>
-                    </div>
+                    <div className="progress-bar" role="progressbar" style={ { width: '25%' }} aria-valuenow={25} aria-valuemin={0} aria-valuemax={100}>5 / 10</div>
                 </div>
             </React.Fragment>
     );
