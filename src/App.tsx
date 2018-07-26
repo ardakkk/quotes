@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.scss';
-import './assets/main.scss';
+import './assets/styles/main.scss';
 import Quotes from './containers/Quotes/Quotes';
 import Layout from './hoc/Layout';
 
