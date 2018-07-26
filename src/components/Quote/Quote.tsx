@@ -1,21 +1,30 @@
 import * as React from 'react'
+import './Quote.scss';
 
-interface IquoteState {
+
+interface IQuoteState {
     value?: string;
 }
-export default class Quote extends React.Component<any, IquoteState> {
+export default class Quote extends React.Component<any, IQuoteState> {
     public state = {
         value: ''
     }
     
+    public add() {
+        const { value } = this.state;
+        if (value) {
+            this.props.addNote(value);
+        }
+      
+    }
     public render() {
         return (
             <React.Fragment>
                 <h1>Quote</h1>
                 <div>
-                    <textarea cols={100} rows={10} onChange={ (e) => console.log(e.target.value) }/>
+                    <textarea cols={100} rows={10} onChange={ (e) => this.setState({ value: e.target.value }) } placeholder={'Enter your note here...'}/>
                 </div>
-                <button type="button" className="btn btn-primary btn-lg">Add Quote</button>
+                <button type="button" className="btn btn-primary btn-lg" onClick={ (e) => this.add() } disabled={ this.props.disable }>Add Quote</button>
             </React.Fragment>
         )
   }
