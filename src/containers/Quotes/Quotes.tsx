@@ -47,6 +47,26 @@ interface IquotesState {
       }
       
   }
+  public componentDidMount() {
+    const localNotes = JSON.parse(localStorage.getItem('notes'));
+    const count = JSON.parse(localStorage.getItem('count'));
+
+    if (localNotes) {
+      this.setState({ notes: localNotes, count });
+    }
+  }
+  public componentDidUpdate() {
+    this.updateLocalStorage();
+  }
+
+  public updateLocalStorage(){
+    const notes = JSON.stringify(this.state.notes);
+    const count = JSON.stringify(this.state.count);
+
+    localStorage.setItem('notes', notes);
+    localStorage.setItem('count', count);
+  }
+
   public render() {
     const { notes, count, maxCount, disabled} = this.state;
     return (
